@@ -48,7 +48,10 @@ else {
     const remove = document.querySelectorAll('.buy-list li i')
     for(let i= 0; i < remove.length; i++) {
         remove[i].addEventListener('click', () => {
-                alert("bạn có thực sự muốn xoá ?")
+                let choice =  confirm("bạn có muốn xoá?");
+                if(!choice) {
+                    return
+                }
                 product.splice(i,1)
                 localStorage.setItem("cart", JSON.stringify(product))
                 load(product)
